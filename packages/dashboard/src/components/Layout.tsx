@@ -77,19 +77,21 @@ export default function Layout({ children }: { children: ReactNode }) {
             ))}
           </div>
 
-          <div className="nav-section">
-            <div className="nav-section-title">تبادل مجتمعي</div>
-            {communityNav.filter(canSee).map(item => (
-              <NavLink
-                key={item.to}
-                to={item.to}
-                className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
-              >
-                {item.icon}
-                {item.label}
-              </NavLink>
-            ))}
-          </div>
+          {user?.role !== 'donor' && communityNav.filter(canSee).length > 0 && (
+            <div className="nav-section">
+              <div className="nav-section-title">تبادل مجتمعي</div>
+              {communityNav.filter(canSee).map(item => (
+                <NavLink
+                  key={item.to}
+                  to={item.to}
+                  className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                >
+                  {item.icon}
+                  {item.label}
+                </NavLink>
+              ))}
+            </div>
+          )}
 
           {systemNav.filter(canSee).length > 0 && (
             <div className="nav-section">
