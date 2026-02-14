@@ -1,0 +1,18 @@
+{
+  "name": "ataa",
+  "private": true,
+  "version": "1.0.0",
+  "description": "عطاء - نظام توزيع المساعدات الإنسانية",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:hub": "cd packages/hub && npm run dev",
+    "dev:core": "cd packages/core && npm run dev",
+    "dev:dashboard": "cd packages/dashboard && npm run dev",
+    "dev:donor": "cd packages/donor && npm run dev",
+    "dev:field": "cd packages/field-app && npm run dev",
+    "build:all": "npm run build --workspaces",
+    "lint": "npm run lint --workspaces"
+  }
+}
